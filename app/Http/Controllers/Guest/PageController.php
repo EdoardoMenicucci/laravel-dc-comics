@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
+use App\Models\ComicBook;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function home()
     {
-        $dati = config("data");
-        $data = ['data' => $dati];
+        $comicsList = ComicBook::all();
+        $data = ['comicslist' => $comicsList];
 
-        return view('home', $data);
+        return view('comics.index', $data);
     }
 }
