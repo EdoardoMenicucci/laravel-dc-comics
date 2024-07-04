@@ -24,4 +24,4 @@ Route::get(
 )->name("home");
 
 
-Route::resources('/comics', ComicsController::class);
+Route::resource('/comics', ComicsController::class);

@@ -40,7 +40,10 @@ class ComicsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $comicBook = ComicBook::find($id);
+        $data = ['comic' => $comicBook];
+
+        return view('comics.show', $data);
     }
 
     /**

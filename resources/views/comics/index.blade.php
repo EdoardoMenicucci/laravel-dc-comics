@@ -2,6 +2,8 @@
 
 @section('content')
 	@foreach ($comicslist as $comic)
-		<li>{{ $comic->name }}</li>
+		<a href="/comics/{{ $comic->id }}">
+			<li>{{ $comic->title }}</li>
+		</a>
 	@endforeach
 @endsection
