@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Guest\ComicsController;
 use App\Http\Controllers\Guest\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::resources('/rotta',NomeController:class) <-- CRUD
+
 
 
 Route::get(
     '/',
     [PageController::class, 'home']
 )->name("home");
+
+
+Route::resources('/comics', ComicsController::class);
