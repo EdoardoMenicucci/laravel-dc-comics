@@ -18,7 +18,6 @@ return new class extends Migration
             $table->longText('description');
             $table->string('price');
             $table->text('series');
-            $table->date('sale_date');
             $table->text('type');
 
             $table->timestamps();
