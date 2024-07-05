@@ -44,7 +44,7 @@ class ComicsController extends Controller
 
         $comicBook->save();
 
-        return var_dump($data);
+        return redirect()->route('comics.show', $comicBook->id);
     }
 
     /**
@@ -63,7 +63,10 @@ class ComicsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $comicBook = ComicBook::find($id);
+        $comic = ['comic' => $comicBook];
+
+        return view('comics.edit', $comic);
     }
 
     /**
@@ -71,7 +74,29 @@ class ComicsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+
+        $comicBook = ComicBook::findOrFail($id);
+
+        // if (isset($data['title'])) {
+        $comicBook->title = $data['title'];
+        // }
+        // if ($data['description']) {
+        $comicBook->description = $data['description'];
+        //}
+        //if ($data['price']) {
+        $comicBook->price = $data['price'];
+        //}
+        // if ($data['series']) {
+        $comicBook->series = $data['series'];
+        //}
+        //if ($data['type']) {
+        $comicBook->type = $data['type'];
+        //}
+
+        $comicBook->save();
+
+        return redirect()->route('comics.show', $comicBook->id);
     }
 
     /**

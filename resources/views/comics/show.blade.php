@@ -6,4 +6,7 @@
 	<div>Prezzo: {{ $comic->price }}</div>
 	<div>Serie: {{ $comic->series }}</div>
 	<div>Tipo di libro: {{ $comic->type }}</div>
+	<form action="{{ route('comics.edit', $comic->id) }}" method="GET">
+		<button type="submit">Modifica</button>
+	</form>
 @endsection
